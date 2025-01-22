@@ -1,0 +1,12 @@
+.idea/
+.vscode/
+.pio/
+
+esp8266/.gitignore
+esp8266/data/
+esp8266/lib/
+
+website/.gitignore
+website/*.json
+website/src/styles.css
+website/src/theme.scss

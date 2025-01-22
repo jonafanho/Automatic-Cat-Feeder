@@ -1,0 +1,32 @@
+<mat-card appearance="outlined">
+	<mat-card-header>
+		<mat-card-title>Cat Feeding Schedule</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<div class="column gap">
+			<div>These times will be repeated daily in your local timezone.</div>
+			<div class="row gap-small center">
+				<mat-form-field subscriptSizing="dynamic" class="input">
+					<mat-label>Time</mat-label>
+					<input matInput [matTimepicker]="picker" [(ngModel)]="value">
+					<mat-timepicker-toggle matIconSuffix [for]="picker"/>
+					<mat-timepicker #picker/>
+				</mat-form-field>
+				<button mat-icon-button (click)="add()" [disabled]="isInvalidDate()">
+					<mat-icon>add</mat-icon>
+				</button>
+			</div>
+			<div class="column gap-small">
+				@for (schedule of getSchedule(); track $index) {
+					<div class="row center">
+						<div>{{ schedule.toLocaleTimeString() }}</div>
+						<div class="spacing"></div>
+						<button mat-icon-button (click)="remove(schedule)">
+							<mat-icon>delete</mat-icon>
+						</button>
+					</div>
+				}
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>

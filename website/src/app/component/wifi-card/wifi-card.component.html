@@ -1,0 +1,19 @@
+<mat-card appearance="outlined">
+	<mat-card-header>
+		<mat-card-title>WiFi Settings</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<div class="column gap">
+			<div>Only 2.4 GHz networks are supported at this time.</div>
+			<mat-form-field subscriptSizing="dynamic" class="input">
+				<mat-label>Network SSID</mat-label>
+				<input matInput autocomplete="off" required spellcheck="false" [(ngModel)]="ssid">
+			</mat-form-field>
+			<mat-form-field subscriptSizing="dynamic" class="input">
+				<mat-label>Password</mat-label>
+				<input matInput autocomplete="off" required spellcheck="false" [(ngModel)]="password" type="password">
+			</mat-form-field>
+			<button mat-flat-button class="input" (click)="save()" [disabled]="ssid === '' || password === '' || ssid === getSsid() && password === getPassword()">Save</button>
+		</div>
+	</mat-card-content>
+</mat-card>
